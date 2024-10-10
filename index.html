@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,14 +127,17 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             border-radius: 10px;
-            margin-top: 20px;
-            height: 200px;
+            margin: 20px 0; /* Increased margin for spacing */
+            /* Removed fixed height to allow dynamic resizing */
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
         }
 
         #messages {
-            height: 120px;
+            flex: 1; /* Allow messages to take up available space */
             padding: 10px;
-            overflow-y: scroll;
+            overflow-y: auto;
             background-color: #f9f9f9;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -160,6 +162,8 @@
         #inputArea {
             display: flex;
             margin-top: 10px;
+            /* Added flex-shrink to prevent overlapping */
+            flex-shrink: 0;
         }
 
         #inputArea input {
@@ -169,6 +173,7 @@
             border-radius: 5px;
             border: 1px solid #ccc;
             margin-right: 10px;
+            box-sizing: border-box;
         }
 
         #inputArea button {
@@ -180,6 +185,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            flex-shrink: 0;
         }
 
         #inputArea button:hover {
@@ -215,6 +221,7 @@
             margin: 10px 0;
             border-radius: 5px;
             border: 1px solid #ccc;
+            box-sizing: border-box;
         }
 
         .login-container button {
@@ -253,7 +260,8 @@
             }
 
             #chatbox {
-                height: 150px;
+                /* Adjust margin for smaller screens */
+                margin: 20px 0;
             }
 
             .login-container {
@@ -272,7 +280,8 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 1200px;
-            margin-top: 20px;
+            margin: 20px 0; /* Added margin for spacing */
+            box-sizing: border-box;
         }
 
         .course-content h1, .course-content h2, .course-content h3 {
@@ -294,10 +303,11 @@
 
     <!-- Main Content -->
     <div class="video-container">
+
         <div id="player"></div>
         <div id="videoOverlay" class="video-overlay"></div> <!-- Permanent Overlay -->
         <div id="initialOverlay" class="initial-overlay"></div> <!-- Initial Black Overlay -->
-        <div id="blackout" class="blackout">Loading...</div> <!-- Blackout Overlay -->
+        <div id="blackout" class="blackout">Loading/Paused</div> <!-- Blackout Overlay -->
     </div>
 
     <!-- Controls below the video container -->
@@ -310,6 +320,9 @@
         <button id="unmuteButton" aria-label="Unmute Video">Unmute</button>
         <div class="time-display" id="timeDisplay">0:00 / 0:00</div>
     </div>
+<div class="slider-container" style="width: 75%; margin-top: 20px;">
+    <input type="range" id="timeSlider" min="0" max="100" value="0" step="1" style="width: 100%;" />
+</div>
 
     <!-- Chatbot Section -->
     <div id="chatbox">
@@ -317,120 +330,31 @@
         <div id="messages">
             <!-- Initial bot response -->
             <div class="message bot">
-                Hi, I am OccultEdge chatbot. Ask me any questions you have while watching the video.
+                Hi, I am OccultEdge state of an art virtual trainer. Ask me any questions you have while doing the course . E.g. what is imap? 
             </div>
         </div>
         <div id="inputArea">
             <input type="text" id="userInput" placeholder="Type your message here..." />
-            <button onclick="sendMessage()">Send</button>
+            <button onclick="sendMessage()">Go</button>
         </div>
     </div>
 
-    <div style="margin-top: 150px;"></div>
+    <!-- Removed unnecessary spacing div -->
 
     <!-- Course Content Section -->
     <div class="course-content">
         <!-- Lesson 1: IT Training Course Summary for Nursing Students -->
-        <h1>🩺 Soft Skills</h1>
+        <h1>🩺 Lesson 1: Demo of Lecture </h1>
         <p>
-            Welcome to the softskills Module.
+            This is demo lecture by Your Indian  Professor .  
         </p>
-        <h2>🗓️ Total : Weeks 1</h2>
-       
-        <div style="margin-top: 40px; padding: 20px; background: #ffffff; border-left: 5px solid #2e8b57; border-radius: 5px;">
-            <h2>📝 Assignments </h2>
-            <p>To reinforce your understanding of the course material, please complete the following assignments</p>
-
-            <h3>📅 Week 1 Assignments</h3>
-            <ul>
-                <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soft Skills Assignment</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        h2 {
-            color: #34495e;
-        }
-        .assignment-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .assignment-container h3 {
-            color: #27ae60;
-        }
-        ul {
-            list-style-type: square;
-            margin-left: 20px;
-        }
-        .assignment-container p {
-            font-size: 16px;
-            color: #2c3e50;
-        }
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #95a5a6;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Soft Skills Assignment</h1>
-
-    <div class="assignment-container">
-        <h2>Role-Playing Scenarios</h2>
-        <h3>Objective:</h3>
-        <p>To improve communication, empathy, and conflict resolution skills in healthcare settings.</p>
-        
-        <h3>Assignment:</h3>
-        <p>In pairs or small groups, participate in role-playing various healthcare scenarios (e.g., communicating with a patient, addressing a family’s concerns, or resolving team conflicts). Each participant will take turns playing different roles such as nurse, doctor, patient, or family member.</p>
-
-        <h3>Instructions:</h3>
-        <ul>
-            <li>Choose a healthcare-related scenario (e.g., giving bad news, patient refusal of treatment, handling a stressful emergency).</li>
-            <li>Switch roles within the group to experience different perspectives.</li>
-            <li>Focus on demonstrating empathy, listening, and resolving the situation peacefully.</li>
-        </ul>
-
-        <h3>Evaluation:</h3>
-        <p>Participants will be evaluated based on their ability to communicate effectively, empathize with others, and resolve conflicts in the given scenario.</p>
-    </div>
-
-    <footer>
-        &copy; 2024 Soft Skills Training for Healthcare Professionals
-    </footer>
-
-</body>
-</html>
-
-            </ul>
-
-            <p>Please submit your completed assignments through the designated submission portal by the end of each week.</p>
-        </div>
-    </div>
+        <h2>🗓️ Full Course soon</h2>
 
     <!-- Load YouTube IFrame API -->
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
-        const validUsers = ['rohit', 'utkarsh', 'anita', 'arunima', 'sachitr'];
+        const validUsers = ['rohit', 'utkarsh', 'anita', 'arunima', 'bisheline'];
 
         // Function to handle login
         function login() {
@@ -555,7 +479,34 @@
                 blackout.style.display = 'flex'; // Show blackout when paused
                 videoOverlay.style.backgroundColor = 'rgba(0, 0, 0, 1)'; // Opaque while paused
             } else if (event.data === YT.PlayerState.BUFFERING) {
-                // Show loading and mute during buffering
+               // Reference to the time slider
+const timeSlider = document.getElementById('timeSlider');
+
+// Update slider position as the video plays
+player.addEventListener('onStateChange', function(event) {
+    if (event.data === YT.PlayerState.PLAYING) {
+        updateSlider();
+    }
+});
+
+function updateSlider() {
+    setInterval(function() {
+        if (player && player.getDuration) {
+            let currentTime = player.getCurrentTime();
+            let duration = player.getDuration();
+            timeSlider.max = duration; // Set the max value of the slider to the video duration
+            timeSlider.value = currentTime; // Update the slider position to current time
+        }
+    }, 1000); // Update slider every second
+}
+
+// Change video time based on slider input
+timeSlider.addEventListener('input', function() {
+    let seekTime = timeSlider.value; 
+    player.seekTo(seekTime, true); // Jump to the selected time
+});
+
+ // Show loading and mute during buffering
                 blackout.style.display = 'flex'; // Show blackout with "Loading..."
                 player.mute(); // Mute while buffering
             } else if (event.data === YT.PlayerState.PLAYING) {
@@ -563,6 +514,7 @@
                 videoOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0)'; // Transparent while playing
             }
         }
+        
 
         // Chatbot Functionality with Together API
         async function sendMessage() {
@@ -637,6 +589,7 @@
                 .replace(/\n/g, '<br>'); // Replace \n with <br> for line breaks
             return formatted;
         }
+        
     </script>
 </body>
 </html>
